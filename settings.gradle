@@ -1,0 +1,3 @@
+include ':app',':AudioRecord'
+rootProject.name='CrowdTest'
+project(':AudioRecord').projectDir = new File('app/AudioRecord')
