@@ -55,7 +55,7 @@ final class Wav extends AbstractRecorder {
     }
   }
 
-  private void writeWavHeader() throws IOException {
+  /*private void writeWavHeader() throws IOException {
     long totalAudioLen = new FileInputStream(file).getChannel().size();
     try {
       wavFile.seek(0); // to the beginning
@@ -64,5 +64,12 @@ final class Wav extends AbstractRecorder {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }*/
+
+  private void writeWavHeader() throws IOException {
+    final RandomAccessFile wavFile = randomAccessFile(file);
+    wavFile.seek(0); // to the beginning
+    wavFile.write(new WavHeader(pullTransport.source(), file.length()).toBytes());
+    wavFile.close();
   }
 }

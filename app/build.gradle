@@ -6,7 +6,7 @@ android {
         applicationId "com.example.crowdtest"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode 4
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,9 +22,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api project(path: ':AudioRecord')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api 'gun0912.ted:tedpermission:2.2.2'
-    api project(path: ':AudioRecord')
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

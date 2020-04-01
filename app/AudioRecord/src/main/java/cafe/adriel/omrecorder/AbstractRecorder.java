@@ -14,7 +14,7 @@ import java.io.OutputStream;
 abstract class AbstractRecorder implements Recorder {
     protected final PullTransport pullTransport;
     protected final File file;
-    private final OutputStream outputStream;
+    private OutputStream outputStream;
     private boolean isPaused;
 
     protected AbstractRecorder(PullTransport pullTransport, File file) {
@@ -53,6 +53,13 @@ abstract class AbstractRecorder implements Recorder {
     public void stopRecording() {
         isPaused = false;
         pullTransport.stop();
+        try {
+            outputStream.flush();
+            outputStream.close();
+            outputStream = null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
