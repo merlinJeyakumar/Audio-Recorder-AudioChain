@@ -1,5 +1,8 @@
 # Audio Recorder with Android Audio Chain
 
+## Description
+Cutting-edge audio recorder library for Android with versatile format support
+
 ### Usage
 1. Compact Recorder with Advanced Parameters
 2. Chain subscription was an API to listen audio packets
